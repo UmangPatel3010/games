@@ -1,7 +1,6 @@
 #include<iostream>
-#include<my.h>
 using namespace std;
-char temp='x',a[3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+char temp='x',a[3][3];
 int ch,r,c,i,j;
 int main();
 void reset()
@@ -66,7 +65,6 @@ void winner()
 		{
 			display();
 			cout<<"\n\nplayer-2 is winner\n\n";
-//			exit(0);
 			play_again();
 		}
 	}
@@ -103,8 +101,7 @@ void turn()
 		case 9:	r=c=2; break;
 		default:
 			cout<<"enter valid choise"<<endl;
-//			goto temp;
-			turn();
+			goto temp;
 	}
 	if(temp=='x' && a[r][c]!='X' && a[r][c]!='O')
 	{
@@ -118,9 +115,8 @@ void turn()
 	}
 	else
 	{
-//		if(a[r][c]=='X' || a[r][c]=='O')
 		cout<<"box is filled by other player\nplease try again!!!"<<endl;
-//		display();
+
 		turn();
 	}
 	winner();
@@ -128,6 +124,7 @@ void turn()
 int main()
 {
 	int c=1;
+	reset();
 	while(c!=10)
 	{
 		display();
