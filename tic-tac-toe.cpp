@@ -3,7 +3,7 @@ using namespace std;
 char temp='x',a[3][3];
 int ch,r,c,i,j;
 int main();
-void reset()
+void set()
 {
 	temp='x';
 	a[0][0]='1';
@@ -22,7 +22,7 @@ void play_again()
 	cin>>i;
 	if(i==1)
 	{
-		reset(); 
+		set(); 
 		main();
 	}
 	else
@@ -123,7 +123,7 @@ void turn()
 int main()
 {
 	int c=1;
-	reset();
+	set();
 	while(c!=10)
 	{
 		display();
