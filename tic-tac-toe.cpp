@@ -27,7 +27,6 @@ void play_again()
 	}
 	else
 	{
-		my();
 		exit(0);
 	}
 }
