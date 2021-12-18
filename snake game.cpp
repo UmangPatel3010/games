@@ -7,13 +7,15 @@ bool gameover,temp;
 const int w = 75;
 const int h = 24;
 int x,y,f_x,f_y,score,flag;
-int t_x[100],t_y[100],t_n;
+int t_x[100]={0},t_y[100]={0},t_n;
 int i,j,k;
 enum direction {stop=0,Left,Right,Up,Down};
 direction dir;
+int main();
 void reset()
 {
 	gameover=false;
+	t_n=0;
 	flag=1;
 	dir= stop;
 	x=w/2;
@@ -21,6 +23,15 @@ void reset()
 	f_x= rand() % w;
 	f_y= rand() % h;
 	score=0;
+}
+void play_again()
+{
+	cout<<endl<<"enter 1 to play again:";
+	cin>>i;
+	if(i==1)
+		main();
+	else
+		gameover=true;	
 }
 void play_area()
 {
@@ -45,7 +56,6 @@ void play_area()
 				if(flag==4)
 					cout<<">";
 			}
-//	 			cout<<">";
 	 		else if(i==f_y &&j==f_x)
 				cout<<"o";
 			else
@@ -144,24 +154,15 @@ void function()
 			t_n++;
 		}	
 			
-//		if(x==w-2||x==-1||y==-1||y==h)
-//			gameover=true;
-		    if(x>=w) 
-				x=0; 
-			if(x<0) 
-				x=w-1;
-     		if (y>=h) 
-			   y=0;
-			if (y<0) 
-				y=h-1;		
+		if(x==w||x==-1||y==-1||y==h)
+			play_again();		
 		for(k=0;k<t_n;k++)
 			if(t_x[k]==x&&t_y[k]==y)
-				gameover=true;		
+				play_again();		
 }
 int main()
 {
 	reset();
-//	play_area();
 	while(!gameover)
 	{
 		play_area();
