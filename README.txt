@@ -1,5 +1,5 @@
 this a game of tic tac toe
-this is developed on c++ language\n
+this is developed on c++ language
 ---tic-tac-toe---
 to take your turn press number as given on game-board
 the game will be over when any one player wins or if the match draw
